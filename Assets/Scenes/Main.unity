@@ -380,6 +380,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5725719040202770461, guid: 9db77083b7104d74f8c2a31bb6dc1c64, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2a88d10d56b695c49b41ad64d43aed67, type: 2}
     - target: {fileID: 7079048048129276004, guid: 9db77083b7104d74f8c2a31bb6dc1c64, type: 3}
       propertyPath: m_Name
       value: InvisWalls (1)
@@ -540,6 +544,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9b46a3e158187d49b70fb458676ef91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 5
+  horizontalImput: 0
+  verticalImput: 0
 --- !u!1001 &1745553520
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -592,6 +599,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5725719040202770461, guid: 9db77083b7104d74f8c2a31bb6dc1c64, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2a88d10d56b695c49b41ad64d43aed67, type: 2}
     - target: {fileID: 7079048048129276004, guid: 9db77083b7104d74f8c2a31bb6dc1c64, type: 3}
       propertyPath: m_Name
       value: InvisWalls (2)
@@ -699,6 +710,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5725719040202770461, guid: 9db77083b7104d74f8c2a31bb6dc1c64, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2a88d10d56b695c49b41ad64d43aed67, type: 2}
     - target: {fileID: 7079048048129276004, guid: 9db77083b7104d74f8c2a31bb6dc1c64, type: 3}
       propertyPath: m_Name
       value: InvisWalls (3)
@@ -765,6 +780,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5725719040202770461, guid: 9db77083b7104d74f8c2a31bb6dc1c64, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2a88d10d56b695c49b41ad64d43aed67, type: 2}
     - target: {fileID: 7079048048129276004, guid: 9db77083b7104d74f8c2a31bb6dc1c64, type: 3}
       propertyPath: m_Name
       value: InvisWalls
@@ -786,6 +805,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor
       objectReference: {fileID: 0}
+    - target: {fileID: 3362694816075825116, guid: 39a667d3ade310e45b898d5f82dd0435, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 21413812f95b4ef48b6250b07e2c025d, type: 2}
     - target: {fileID: 4739206504161811223, guid: 39a667d3ade310e45b898d5f82dd0435, type: 3}
       propertyPath: m_RootOrder
       value: -1
