@@ -6,6 +6,8 @@ using static UnityEngine.GraphicsBuffer;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
+    [SerializeField] private List<GameObject> bullets;
+    [SerializeField] int indexNum = 0;
 
     [SerializeField] float speed;
     [SerializeField] float horizontalImput;
@@ -27,7 +29,11 @@ public class PlayerController : MonoBehaviour
         horizontalImput = Input.GetAxisRaw("Horizontal");
         verticalImput = Input.GetAxisRaw("Vertical");
 
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Attack();
+            indexNum = 0;
+        }
 
     }
     private void FixedUpdate()
@@ -35,6 +41,16 @@ public class PlayerController : MonoBehaviour
         Rotate();
 
         rb.velocity = new Vector3(speed * horizontalImput, rb.velocity.y, speed * verticalImput);
+    }
+
+    private void Attack() 
+    {
+        if (bullets[indexNum].gameObject.activeSelf)
+        {
+            indexNum++;
+        }
+        bullets[indexNum].gameObject.SetActive(true);
+        bullets[indexNum].transform.position = transform.position;
     }
 
 
