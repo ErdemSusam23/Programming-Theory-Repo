@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float horizontalImput;
     [SerializeField] float verticalImput;
+    [SerializeField] float smooth = 4.0f;
+
+
 
     float zValue;
     float xValue;
@@ -42,7 +45,7 @@ public class PlayerController : MonoBehaviour
 
     private void Rotate() 
     {
-        float smooth = 10.0f;
+        
 
         if (horizontalImput == 1)
         {
