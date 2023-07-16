@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         Rotate();
 
-        rb.velocity = new Vector3(speed * horizontalImput, rb.velocity.y, speed * verticalImput);
+        rb.velocity = new Vector3(speed * horizontalImput, 0, speed * verticalImput);
     }
 
     private void Attack() 
