@@ -8,13 +8,16 @@ public class Enemy : MonoBehaviour
     [SerializeField] private GameObject player;
 
     Vector3 playerPos;
-    private float speed = 8f;
+    private float speed = 6f;
 
+    private void Awake()
+    {
+        player = GameObject.FindWithTag("Player");
+    }
     private void FixedUpdate()
     {
         AttackPlayer();
     }
-
 
     private void AttackPlayer() 
     {
@@ -22,11 +25,19 @@ public class Enemy : MonoBehaviour
         enemyRb.velocity = (player.transform.position - transform.position).normalized * speed;
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Weapon" ) 
+        if (other.gameObject.tag == "Weapon")
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "Player")
+        {
+            Debug.Log("Player Collision");
         }
     }
 }
