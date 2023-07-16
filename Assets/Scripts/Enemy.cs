@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    [SerializeField] private Rigidbody enemyRb;
-    [SerializeField] private GameObject player;
+    [SerializeField] public Rigidbody enemyRb;
+    [SerializeField] public GameObject player;
 
-    Vector3 playerPos;
-    private float speed = 6f;
+    public Vector3 playerPos;
+    public float speed = 6f;
 
     private void Awake()
     {
@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
         AttackPlayer();
     }
 
-    private void AttackPlayer() 
+    public virtual void AttackPlayer() 
     {
         playerPos = new Vector3(player.transform.position.x, 0, player.transform.position.z);
         enemyRb.velocity = (player.transform.position - transform.position).normalized * speed;

@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<GameObject> enemyPrefab;
 
     float spawnRange = 45f;
-    int spawnInterval;
     int index;
     public int waveNumber=1;
     public int enemyCount;
@@ -19,6 +18,7 @@ public class GameManager : MonoBehaviour
 
         if (enemyCount == 0) 
         {
+            
             SpawnWave(waveNumber);
             waveNumber++;
         }
@@ -38,7 +38,8 @@ public class GameManager : MonoBehaviour
         int enemiesToSpawn = Mathf.FloorToInt((waveNumber + 1) * Mathf.Sqrt(waveNumber));
         for (int i = 0; i < enemiesToSpawn; i++)
         {
-            Instantiate(enemyPrefab[0], RandomSpawnPos(), enemyPrefab[0].transform.rotation);
+            index = Random.Range(0, 2);
+            Instantiate(enemyPrefab[index], RandomSpawnPos(), enemyPrefab[index].transform.rotation);
         }
         waveNumber++;
     }

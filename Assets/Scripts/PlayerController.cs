@@ -8,9 +8,12 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rb;
 
     [SerializeField] float speed;
+    [SerializeField] float speedBackUp;
     [SerializeField] float horizontalImput;
     [SerializeField] float verticalImput;
-    [SerializeField] float smooth = 4.0f;
+    [SerializeField] float smooth;
+    [SerializeField] bool isDamagable;
+    [SerializeField] int healt;
 
 
 
@@ -21,6 +24,12 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        speed = 10f;
+        speedBackUp = speed;
+        healt = 100;
+        isDamagable = true;
+        smooth = 4.0f;
+
         rb = GetComponent<Rigidbody>();
         zValue = 1;
     }
@@ -37,16 +46,31 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector3(speed * horizontalImput, 0, speed * verticalImput);
     }
 
-    private void Attack() 
+    private void OnCollisionEnter(Collision collision)
     {
-        
+        if (collision.gameObject.tag == "Enemy")
+        {
+            StartCoroutine(PlayerImmunity());  
+        }
     }
 
+    IEnumerator PlayerImmunity()
+    {
+        if (isDamagable)
+        {
+            speed *= 2;
+            healt -= 10;
+        }   
+        isDamagable = false;
+
+        yield return new WaitForSeconds(0.5f);
+
+        speed = speedBackUp;
+        isDamagable = true;
+    }
 
     private void Rotate() 
     {
-        
-
         if (horizontalImput == 1)
         {
             xValue = 1;
@@ -92,6 +116,5 @@ public class PlayerController : MonoBehaviour
             }
             transform.rotation = Quaternion.Slerp(transform.rotation, zRotate, Time.deltaTime * smooth);
         }
-
     }
 }
