@@ -28,14 +28,17 @@ public class EnemyFast : Enemy
 
         if (distance < 10 && isFast == false)
         {
-            isFast = true;
-            Debug.Log("Distance lower than 10");
-            StartCoroutine(SpeedUp());
+            DashToPlayer();
         }
-        
-
         playerPos = new Vector3(player.transform.position.x, 0, player.transform.position.z);
         enemyRb.velocity = (player.transform.position - transform.position).normalized * speed;
+    }
+
+    private void DashToPlayer() 
+    {
+        isFast = true;
+        Debug.Log("Distance lower than 10");
+        StartCoroutine(SpeedUp());  
     }
 
     IEnumerator SpeedUp()
