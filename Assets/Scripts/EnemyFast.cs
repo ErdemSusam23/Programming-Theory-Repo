@@ -5,31 +5,34 @@ using UnityEngine;
 
 public class EnemyFast : Enemy
 {
-    public float speedUpSpeed;
+    [SerializeField] private GameObject player;
 
-    int distance;
+    public bool isFast;
+    private float speedBackUp;
+
+    float distance;
     float posX;
     float posZ;
 
     private void Awake()
     {
-        speedUpSpeed = 18f;
-    }
-    private void FixedUpdate()
-    {
-        AttackPlayer();
+        player = GameObject.FindWithTag("Player");
+        
+        isFast = false;
+        speedBackUp = speed;
     }
 
     public override void AttackPlayer()
     {
-        posX = transform.position.x;
-        posZ = transform.position.z;
-        distance = Mathf.FloorToInt(Mathf.Abs(Mathf.Sqrt((playerPos.x * playerPos.x + posX * posX) + (playerPos.z * playerPos.z + posZ * posZ))));
+        distance = Vector3.Distance(playerPos, transform.position);
 
-        if (distance < 10)
+        if (distance < 10 && isFast == false)
         {
+            isFast = true;
+            Debug.Log("Distance lower than 10");
             StartCoroutine(SpeedUp());
         }
+        
 
         playerPos = new Vector3(player.transform.position.x, 0, player.transform.position.z);
         enemyRb.velocity = (player.transform.position - transform.position).normalized * speed;
@@ -37,7 +40,15 @@ public class EnemyFast : Enemy
 
     IEnumerator SpeedUp()
     {
-        enemyRb.velocity = (player.transform.position - transform.position).normalized * speedUpSpeed;
-        yield return new WaitForSeconds(0.5f);
+        speed *= 2f;
+        yield return new WaitForSeconds(0.8f);
+        speed = speedBackUp;
+        StartCoroutine(SpeedUpColdown());  
     }
+    IEnumerator SpeedUpColdown()
+    {
+        yield return new WaitForSeconds(4f);
+        isFast = false;
+    }
+
 }
