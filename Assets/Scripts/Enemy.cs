@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] public Rigidbody enemyRb;
     [SerializeField] private GameObject player;
 
-    public Vector3 playerPos;
+    public Vector3 playerPos { get; protected set;}
     public float speed = 6f;
 
     private void Awake()

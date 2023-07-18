@@ -26,7 +26,7 @@ public class EnemyFast : Enemy
     {
         distance = Vector3.Distance(playerPos, transform.position);
 
-        if (distance < 10 && isFast == false)
+        if (distance < 6 && isFast == false)
         {
             DashToPlayer();
         }
@@ -43,8 +43,8 @@ public class EnemyFast : Enemy
 
     IEnumerator SpeedUp()
     {
-        speed *= 2f;
-        yield return new WaitForSeconds(0.8f);
+        speed *= 2.5f;
+        yield return new WaitForSeconds(0.5f);
         speed = speedBackUp;
         StartCoroutine(SpeedUpColdown());  
     }
