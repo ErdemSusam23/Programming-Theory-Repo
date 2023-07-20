@@ -37,7 +37,6 @@ public class EnemyFast : Enemy
     private void DashToPlayer() 
     {
         isFast = true;
-        Debug.Log("Distance lower than 10");
         StartCoroutine(SpeedUp());  
     }
 

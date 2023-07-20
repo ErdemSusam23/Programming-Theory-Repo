@@ -7,25 +7,32 @@ using TMPro;
 
 public class MenuUIHandler : MonoBehaviour
 {
-    private MainManager mainManager;
+    [SerializeField] public TMP_Text text;
 
-    public TMP_Text text;
+    public TMP_InputField inputField;
 
     private void Start()
     {
-        Debug.Log("Test");
-        SetUserName();
+        if (MainManager.Instance != null)
+        {
+            SetUsername();
+        }
     }
-
     public void StartButton() 
     {
         SceneManager.LoadScene(1);
     }
 
-    void SetUserName() 
+    public void GetUsername() 
     {
-        Debug.Log(mainManager.userName);
-        text.text = mainManager.userName;
+        MainManager.Instance.userName = inputField.text;
+        Debug.Log(MainManager.Instance.userName);
     }
+
+    void SetUsername() 
+    {
+        text.text = MainManager.Instance.userName;
+    }
+
 
 }

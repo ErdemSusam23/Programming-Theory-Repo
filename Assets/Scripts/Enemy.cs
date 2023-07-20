@@ -37,7 +37,6 @@ public class Enemy : MonoBehaviour
     {
         if (collision.gameObject.name == "Player")
         {
-            Debug.Log("Player Collision");
         }
     }
 }

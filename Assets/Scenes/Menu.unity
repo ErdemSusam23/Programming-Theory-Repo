@@ -730,9 +730,9 @@ MonoBehaviour:
   m_OnDeselect:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1946805051}
-        m_TargetAssemblyTypeName: MainManager, Assembly-CSharp
-        m_MethodName: SaveUsername
+      - m_Target: {fileID: 1946805049}
+        m_TargetAssemblyTypeName: MenuUIHandler, Assembly-CSharp
+        m_MethodName: GetUsername
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1245,7 +1245,7 @@ GameObject:
   - component: {fileID: 1946805049}
   - component: {fileID: 1946805051}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: MainManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1263,6 +1263,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15a42e31826d8cf42bb5712a5798d04e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 0}
+  inputField: {fileID: 0}
 --- !u!4 &1946805050
 Transform:
   m_ObjectHideFlags: 0
@@ -1290,7 +1292,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d258c8fc00faa2b458e3f02f24fdb221, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputField: {fileID: 967592366}
   userName: 
 --- !u!1 &1967165075
 GameObject:
