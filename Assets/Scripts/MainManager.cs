@@ -9,6 +9,8 @@ public class MainManager : MonoBehaviour
 
     public TMP_InputField inputField;
 
+    
+
     public string userName;
 
     private void Awake()
@@ -26,6 +28,11 @@ public class MainManager : MonoBehaviour
     {
         userName = inputField.text;
         Debug.Log(userName);
+    }
+
+    void SetUserName() 
+    {
+        text.text = userName;
     }
 
 }
