@@ -5,13 +5,15 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] public Rigidbody enemyRb;
-    [SerializeField] private GameObject player;
+    [SerializeField] public GameObject player;
+    public PlayerController playerController;
 
     public Vector3 playerPos { get; protected set;}
     public float speed = 6f;
 
     private void Awake()
     {
+        playerController = FindAnyObjectByType<PlayerController>();
         player = GameObject.FindWithTag("Player");
     }
     private void FixedUpdate()
@@ -25,11 +27,12 @@ public class Enemy : MonoBehaviour
         enemyRb.velocity = (player.transform.position - transform.position).normalized * speed;
     }
 
-    private void OnTriggerEnter(Collider other)
+    public virtual void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Weapon")
         {
             Destroy(gameObject);
+            playerController.score += 10;
         }
     }
 

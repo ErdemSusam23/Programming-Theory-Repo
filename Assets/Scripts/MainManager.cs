@@ -7,13 +7,12 @@ public class MainManager : MonoBehaviour
 {
     public static MainManager Instance;
 
-    private MenuUIHandler menuUIHandler;
+    public TMP_InputField inputField;
 
     public string userName;
 
     private void Awake()
     {
-        Debug.Log(userName);
         if (Instance != null)
         {
             Destroy(gameObject);
@@ -23,7 +22,12 @@ public class MainManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    
+    public void GetUsername()
+    {
+        userName = inputField.text;
+    }
+
+
 
 
 }

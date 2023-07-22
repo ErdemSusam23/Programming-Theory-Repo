@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyFast : Enemy
 {
-    [SerializeField] private GameObject player;
+    
 
     public bool isFast;
     private float speedBackUp;
@@ -32,6 +32,15 @@ public class EnemyFast : Enemy
         }
         playerPos = new Vector3(player.transform.position.x, 0, player.transform.position.z);
         enemyRb.velocity = (player.transform.position - transform.position).normalized * speed;
+    }
+
+    public override void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Weapon")
+        {
+            Destroy(gameObject);
+            playerController.score += 15;
+        }
     }
 
     private void DashToPlayer() 

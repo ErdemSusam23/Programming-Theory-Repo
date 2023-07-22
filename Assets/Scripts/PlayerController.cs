@@ -13,24 +13,22 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float verticalImput;
     [SerializeField] float smooth;
     [SerializeField] bool isDamagable;
-    [SerializeField] int healt;
 
-
+    public int healt { get; private set; }
+    public int score;
 
     float zValue;
     float xValue;
 
-    
-
     private void Start()
     {
+        rb = GetComponent<Rigidbody>();
+
         speed = 10f;
         speedBackUp = speed;
         healt = 100;
         isDamagable = true;
         smooth = 4.0f;
-
-        rb = GetComponent<Rigidbody>();
         zValue = 1;
     }
 
