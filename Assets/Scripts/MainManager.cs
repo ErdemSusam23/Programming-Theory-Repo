@@ -11,6 +11,8 @@ public class MainManager : MonoBehaviour
 
     public string userName;
 
+    public int bestScore {  get; private set; }
+
     private void Awake()
     {
         if (Instance != null)
