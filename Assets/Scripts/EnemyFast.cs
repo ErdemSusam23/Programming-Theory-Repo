@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class EnemyFast : Enemy
 {
-    
+    private PlayerController pController;
 
     public bool isFast;
     private float speedBackUp;
@@ -16,6 +16,7 @@ public class EnemyFast : Enemy
 
     private void Awake()
     {
+        pController = FindAnyObjectByType<PlayerController>();
         player = GameObject.FindWithTag("Player");
         
         isFast = false;
@@ -26,7 +27,7 @@ public class EnemyFast : Enemy
     {
         distance = Vector3.Distance(playerPos, transform.position);
 
-        if (distance < 6 && isFast == false)
+        if (distance < 8 && isFast == false)
         {
             DashToPlayer();
         }
@@ -39,7 +40,7 @@ public class EnemyFast : Enemy
         if (other.gameObject.tag == "Weapon")
         {
             Destroy(gameObject);
-            playerController.score += 15;
+            pController.score += 15;
         }
     }
 

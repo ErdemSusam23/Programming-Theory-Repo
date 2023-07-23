@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] public Rigidbody enemyRb;
     [SerializeField] public GameObject player;
-    public PlayerController playerController;
+    private PlayerController playerController;
 
     public Vector3 playerPos { get; protected set;}
     public float speed = 6f;

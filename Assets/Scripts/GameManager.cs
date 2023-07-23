@@ -6,21 +6,29 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private List<GameObject> enemyPrefab;
+    [SerializeField] private List<GameObject> powerUp;
 
     float spawnRange = 45f;
     int index;
-    public int waveNumber=1;
+    public int waveNumber {get; private set;}
     public int enemyCount;
 
+    private void Start()
+    {
+        waveNumber = 0;
+    }
     private void Update()
     {
         enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
 
         if (enemyCount == 0) 
-        {
-            
+        { 
             SpawnWave(waveNumber);
             waveNumber++;
+        }
+        if (waveNumber == 10) 
+        {
+            SpawnPowerUp();
         }
     }
 
@@ -42,5 +50,10 @@ public class GameManager : MonoBehaviour
             Instantiate(enemyPrefab[index], RandomSpawnPos(), enemyPrefab[index].transform.rotation);
         }
         waveNumber++;
+    }
+
+    void SpawnPowerUp() 
+    {
+        Instantiate(powerUp[0], RandomSpawnPos(), powerUp[0].transform.rotation);
     }
 }
